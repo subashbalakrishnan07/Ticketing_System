@@ -1,0 +1,28 @@
+Ticketing System
+
+Signup User:
+
+1. Create user with basic information
+2. have two types of users(Admin, Customer)
+3. User email should be unique across user
+
+APIs
+Create user
+update user
+deactivate user
+
+Ticket operation
+
+1. create ticket with info like(Ticket id, Subject, Message, priority)
+2. only valid user can create ticket
+3. only admin user can close or resolve the ticket with reason
+4. user with customer type can only reopen the ticket
+5. only resolved state tickets can be reopened
+6. Admin can reply to the query and the customer can also reply, chain of comments should be maintained for the each tickets
+7. comments should be maintained in separate collection associated with ticket id
+
+APIs
+create ticket
+update ticket
+Add reply
+close/resolve ticket
