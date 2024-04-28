@@ -1,4 +1,4 @@
-package com.Assignment.TicketingSystem.Essential;
+package com.Assignment.TicketingSystem.Enums;
 
 public enum TicketPriority {
 

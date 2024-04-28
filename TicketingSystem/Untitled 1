@@ -23,7 +23,7 @@ Ticket operation
 7. comments should be maintained in separate collection associated with ticket id
 
 APIs
-create ticket
-update ticket
-Add reply
+create ticket//
+update ticket//
+Add reply//
 close/resolve ticket
