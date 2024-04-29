@@ -27,3 +27,9 @@ create ticket//
 update ticket//
 Add reply//
 close/resolve ticket
+
+
+
+//Generate Sequence Number for Document
+//Create Filter api for Getting Ticket that match the Criteria
+add Message on the validation area//

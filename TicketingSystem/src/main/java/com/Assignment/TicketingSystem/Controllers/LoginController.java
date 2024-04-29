@@ -1,10 +1,12 @@
 package com.Assignment.TicketingSystem.Controllers;
 
 import com.Assignment.TicketingSystem.DataModelDtos.UserDetailsDto;
+///import com.Assignment.TicketingSystem.DataModelDtos.UserDetailsDto.CreateValidationGroup;
 import com.Assignment.TicketingSystem.Services.LoginService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -17,13 +19,20 @@ public class LoginController {
     LoginService ticketLoginService;
 
     @PostMapping("/create-account")
-    public Mono<String > createUser(@Valid @RequestBody
+    public Mono<String > createUser(@Validated(UserDetailsDto.CreateValidationGroup.class) @RequestBody
                                     UserDetailsDto userDetailsDto) {
         return ticketLoginService.createAccount(userDetailsDto);
     }
 
+    @GetMapping("/simple-web-call")
+    public Mono<String> simpleWebCall(){
+        return Mono.just("Simple webclient call ");
+    }
+
+
     @PutMapping("/update-account")
-    public Mono<String> updateUser(@RequestBody @Valid
+    public Mono<String> updateUser(@RequestBody @Validated
+            (UserDetailsDto.UpdateValidationGroup.class)
                                         UserDetailsDto userDetailsDto) {
         return ticketLoginService.updateUser(userDetailsDto);
     }

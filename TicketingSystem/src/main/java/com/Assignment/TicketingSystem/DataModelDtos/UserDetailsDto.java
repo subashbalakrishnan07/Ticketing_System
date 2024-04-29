@@ -14,18 +14,20 @@ import lombok.*;
 @NoArgsConstructor
 public class UserDetailsDto {
 
-    @NotBlank(message = "Name must not be blank")
-    @Pattern(regexp = "^[a-zA-Z]+$",message = "Name should be Alphabet")
+    private String id;
+
+    @NotBlank(message = "Name must not be blank",groups = {UserDetailsDto.CreateValidationGroup.class,UserDetailsDto.UpdateValidationGroup.class})
+    @Pattern(regexp = "^[a-zA-Z]+$",message = "Name should be Alphabet",groups = {UserDetailsDto.CreateValidationGroup.class,UserDetailsDto.UpdateValidationGroup.class})
     private String name;
 
-    @NotBlank(message = "Email must not be blank")
-    @Email(message = "Email must be valid")
+    @NotBlank(message = "Email must not be blank",groups = {UserDetailsDto.CreateValidationGroup.class})
+    @Email(message = "Email must be valid",groups = {UserDetailsDto.CreateValidationGroup.class,UserDetailsDto.UpdateValidationGroup.class})
     private String emailID;
 
-    @Pattern(regexp = "\\d{10}", message = "Mobile number should be 10 digits")
+    @Pattern(regexp = "\\d{10}", message = "Mobile number should be 10 digits",groups = {UserDetailsDto.CreateValidationGroup.class,UserDetailsDto.UpdateValidationGroup.class})
     private String mobileNumber;
 
-    @NotNull(message = "User type must not be null")
+    @NotNull(message = "User type must not be null",groups = {UserDetailsDto.CreateValidationGroup.class})
     private UserType userType;
 
     public UserDetailsDto(UserDetails user) {
@@ -36,6 +38,9 @@ public class UserDetailsDto {
 
 
     }
+
+    public interface CreateValidationGroup{}
+    public interface UpdateValidationGroup{}
 
 
 }

@@ -1,5 +1,7 @@
-package com.Assignment.TicketingSystem.DataModels;
+package com.Assignment.TicketingSystem.DataModelDtos;
 
+import com.Assignment.TicketingSystem.DataModels.Message;
+import com.Assignment.TicketingSystem.DataModels.TicketDetails;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,8 +11,12 @@ import lombok.NoArgsConstructor;
 @Data
 public class GetMyTicketDto {
 
+
+
     private TicketDetails ticketDetails;
-    private  Message  message;
+    private Message message;
+
+
 
 
 

@@ -25,6 +25,7 @@ public class UserDetails {
 
     public UserDetails(UserDetailsDto user) {
 
+        this.id=user.getId();
         this.name = user.getName();
         this.emailID = user.getEmailID();
         this.mobileNumber = user.getMobileNumber();
