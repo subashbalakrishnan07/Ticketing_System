@@ -1,4 +1,4 @@
-package com.Assignment.TicketingSystem.ExceptionHandlers;
+package com.Assignment.ticketingsystem.exceptionhandler;
 
 import com.mongodb.DuplicateKeyException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;

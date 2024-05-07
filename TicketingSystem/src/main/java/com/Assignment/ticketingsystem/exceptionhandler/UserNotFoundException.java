@@ -1,4 +1,4 @@
-package com.Assignment.TicketingSystem.ExceptionHandlers;
+package com.Assignment.ticketingsystem.exceptionhandler;
 
 public class UserNotFoundException extends  Exception{
 

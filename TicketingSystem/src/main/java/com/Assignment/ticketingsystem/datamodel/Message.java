@@ -1,6 +1,6 @@
-package com.Assignment.TicketingSystem.DataModels;
+package com.Assignment.ticketingsystem.datamodel;
 
-import com.Assignment.TicketingSystem.Enums.UserType;
+import com.Assignment.ticketingsystem.enumpackage.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

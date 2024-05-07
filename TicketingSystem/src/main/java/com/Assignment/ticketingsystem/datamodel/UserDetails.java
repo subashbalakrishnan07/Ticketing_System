@@ -1,9 +1,9 @@
-package com.Assignment.TicketingSystem.DataModels;
-import com.Assignment.TicketingSystem.DataModelDtos.UserDetailsDto;
+package com.Assignment.ticketingsystem.datamodel;
+import com.Assignment.ticketingsystem.datamodeldto.UserDetailsDto;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import com.Assignment.TicketingSystem.Enums.UserType;
+import com.Assignment.ticketingsystem.enumpackage.UserType;
 
 @Data
 @AllArgsConstructor
@@ -21,16 +21,15 @@ public class UserDetails {
 
     private UserType userType;
 
-    private boolean isUserActive = true;
+    private boolean isUserActive ;
 
     public UserDetails(UserDetailsDto user) {
 
-        this.id=user.getId();
         this.name = user.getName();
         this.emailID = user.getEmailID();
         this.mobileNumber = user.getMobileNumber();
         this.userType = user.getUserType();
-        boolean isUserActive = true;
+        this.isUserActive = true;
     }
 
 

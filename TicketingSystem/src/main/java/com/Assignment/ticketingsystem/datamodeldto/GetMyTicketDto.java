@@ -1,7 +1,7 @@
-package com.Assignment.TicketingSystem.DataModelDtos;
+package com.Assignment.ticketingsystem.datamodeldto;
 
-import com.Assignment.TicketingSystem.DataModels.Message;
-import com.Assignment.TicketingSystem.DataModels.TicketDetails;
+import com.Assignment.ticketingsystem.datamodel.Message;
+import com.Assignment.ticketingsystem.datamodel.TicketDetails;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

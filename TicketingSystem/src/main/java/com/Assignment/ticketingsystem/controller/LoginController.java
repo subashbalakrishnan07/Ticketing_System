@@ -1,9 +1,8 @@
-package com.Assignment.TicketingSystem.Controllers;
+package com.Assignment.ticketingsystem.controller;
 
-import com.Assignment.TicketingSystem.DataModelDtos.UserDetailsDto;
+import com.Assignment.ticketingsystem.datamodeldto.UserDetailsDto;
 ///import com.Assignment.TicketingSystem.DataModelDtos.UserDetailsDto.CreateValidationGroup;
-import com.Assignment.TicketingSystem.Services.LoginService;
-import jakarta.validation.Valid;
+import com.Assignment.ticketingsystem.service.LoginService;
 import jakarta.validation.constraints.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -19,7 +18,7 @@ public class LoginController {
     LoginService ticketLoginService;
 
     @PostMapping("/create-account")
-    public Mono<String > createUser(@Validated(UserDetailsDto.CreateValidationGroup.class) @RequestBody
+    public Mono<?> createUser(@Validated(UserDetailsDto.CreateValidationGroup.class) @RequestBody
                                     UserDetailsDto userDetailsDto) {
         return ticketLoginService.createAccount(userDetailsDto);
     }

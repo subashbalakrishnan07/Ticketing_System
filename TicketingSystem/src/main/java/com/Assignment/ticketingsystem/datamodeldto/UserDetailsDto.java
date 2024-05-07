@@ -1,7 +1,7 @@
-package com.Assignment.TicketingSystem.DataModelDtos;
+package com.Assignment.ticketingsystem.datamodeldto;
 
-import com.Assignment.TicketingSystem.DataModels.UserDetails;
-import com.Assignment.TicketingSystem.Enums.UserType;
+import com.Assignment.ticketingsystem.datamodel.UserDetails;
+import com.Assignment.ticketingsystem.enumpackage.UserType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

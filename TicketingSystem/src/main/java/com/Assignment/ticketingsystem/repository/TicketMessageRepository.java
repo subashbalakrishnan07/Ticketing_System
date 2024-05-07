@@ -1,6 +1,6 @@
-package com.Assignment.TicketingSystem.Repositorys;
+package com.Assignment.ticketingsystem.repository;
 
-import com.Assignment.TicketingSystem.DataModels.Message;
+import com.Assignment.ticketingsystem.datamodel.Message;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;

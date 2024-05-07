@@ -1,10 +1,10 @@
-package com.Assignment.TicketingSystem.Controllers;
+package com.Assignment.ticketingsystem.controller;
 
 
-import com.Assignment.TicketingSystem.DataModelDtos.TicketAggregationDto;
-import com.Assignment.TicketingSystem.DataModelDtos.TicketDetailsDto;
-import com.Assignment.TicketingSystem.DataModelDtos.GetMyTicketDto;
-import com.Assignment.TicketingSystem.Services.TicketService;
+import com.Assignment.ticketingsystem.datamodeldto.TicketAggregationDto;
+import com.Assignment.ticketingsystem.datamodeldto.TicketDetailsDto;
+import com.Assignment.ticketingsystem.datamodeldto.GetMyTicketDto;
+import com.Assignment.ticketingsystem.service.TicketService;
 import jakarta.validation.constraints.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;

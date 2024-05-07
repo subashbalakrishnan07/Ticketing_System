@@ -1,4 +1,4 @@
-package com.Assignment.TicketingSystem;
+package com.Assignment.ticketingsystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

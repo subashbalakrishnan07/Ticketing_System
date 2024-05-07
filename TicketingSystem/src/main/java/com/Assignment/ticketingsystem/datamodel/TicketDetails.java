@@ -1,8 +1,8 @@
-package com.Assignment.TicketingSystem.DataModels;
+package com.Assignment.ticketingsystem.datamodel;
 
-import com.Assignment.TicketingSystem.Enums.TicketPriority;
-import com.Assignment.TicketingSystem.Enums.TicketStatus;
-import com.Assignment.TicketingSystem.DataModelDtos.TicketDetailsDto;
+import com.Assignment.ticketingsystem.enumpackage.TicketPriority;
+import com.Assignment.ticketingsystem.enumpackage.TicketStatus;
+import com.Assignment.ticketingsystem.datamodeldto.TicketDetailsDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

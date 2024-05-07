@@ -1,4 +1,4 @@
-package com.Assignment.TicketingSystem.Enums;
+package com.Assignment.ticketingsystem.enumpackage;
 
 public enum TicketStatus {
 

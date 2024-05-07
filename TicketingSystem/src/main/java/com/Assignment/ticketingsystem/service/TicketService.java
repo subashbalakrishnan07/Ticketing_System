@@ -1,19 +1,19 @@
-package com.Assignment.TicketingSystem.Services;
+package com.Assignment.ticketingsystem.service;
 
-import com.Assignment.TicketingSystem.DataModelDtos.TicketAggregationDto;
-import com.Assignment.TicketingSystem.DataModelDtos.TicketDetailsDto;
-import com.Assignment.TicketingSystem.DataModelDtos.GetMyTicketDto;
-import com.Assignment.TicketingSystem.DataModels.Message;
-import com.Assignment.TicketingSystem.DataModels.TicketDetails;
-import com.Assignment.TicketingSystem.Enums.TicketStatus;
-import com.Assignment.TicketingSystem.Enums.UserType;
-import com.Assignment.TicketingSystem.ExceptionHandlers.CustomException;
-import com.Assignment.TicketingSystem.ExceptionHandlers.TicketNotFoundException;
-import com.Assignment.TicketingSystem.ExceptionHandlers.UserNotFoundException;
-import com.Assignment.TicketingSystem.Repositorys.SequenceRepository;
-import com.Assignment.TicketingSystem.Repositorys.TicketMessageRepository;
-import com.Assignment.TicketingSystem.Repositorys.TicketRepository;
-import com.Assignment.TicketingSystem.Repositorys.UsersRepository;
+import com.Assignment.ticketingsystem.datamodeldto.TicketAggregationDto;
+import com.Assignment.ticketingsystem.datamodeldto.TicketDetailsDto;
+import com.Assignment.ticketingsystem.datamodeldto.GetMyTicketDto;
+import com.Assignment.ticketingsystem.datamodel.Message;
+import com.Assignment.ticketingsystem.datamodel.TicketDetails;
+import com.Assignment.ticketingsystem.enumpackage.TicketStatus;
+import com.Assignment.ticketingsystem.enumpackage.UserType;
+import com.Assignment.ticketingsystem.exceptionhandler.CustomException;
+import com.Assignment.ticketingsystem.exceptionhandler.TicketNotFoundException;
+import com.Assignment.ticketingsystem.exceptionhandler.UserNotFoundException;
+import com.Assignment.ticketingsystem.repository.SequenceRepository;
+import com.Assignment.ticketingsystem.repository.TicketMessageRepository;
+import com.Assignment.ticketingsystem.repository.TicketRepository;
+import com.Assignment.ticketingsystem.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
@@ -46,7 +46,7 @@ public class TicketService {
     public Mono<String> createTicket(TicketDetailsDto ticketDetailsDto) {
 
 
-        return sequenceRepository.findAllById("662f8bfd2b87892de4820718").flatMap(sequence -> {
+        return sequenceRepository.findAllById("sequence_document").flatMap(sequence -> {
             ticketDetailsDto.setTicketId(String.valueOf(sequence.getTicketCount() + 1));
             sequence.setTicketCount(sequence.getTicketCount() + 1);
             return usersRepository.findByEmail(ticketDetailsDto.getEmailId()).flatMap(user -> {
@@ -133,7 +133,7 @@ public class TicketService {
 
     public Flux<TicketDetailsDto> getMatchedTickets(TicketAggregationDto ticketAggregationDto) {
         MatchOperation matchOperation = Aggregation.match(
-                new Criteria().orOperator(
+                new Criteria().andOperator(
                         Criteria.where("ticketPriority").in(ticketAggregationDto.getTicketPriorityList()),
                         Criteria.where("emailId").in(ticketAggregationDto.getEmailList()),
                         Criteria.where("subject").in(ticketAggregationDto.getSubjectList()),
@@ -142,11 +142,11 @@ public class TicketService {
         );
 
         Aggregation aggregation = Aggregation.newAggregation(matchOperation);
-            return
-             reactiveMongoTemplate
-             .aggregate(aggregation, "TicketDetails", TicketDetails.class)
-             .switchIfEmpty(Flux.error(new CustomException("No Data Found")))
-             .flatMap(ticketDetails -> Flux.just(new TicketDetailsDto(ticketDetails)));
+        return
+                reactiveMongoTemplate
+                        .aggregate(aggregation, "TicketDetails", TicketDetails.class)
+                        .switchIfEmpty(Flux.error(new CustomException("No Data Found")))
+                        .flatMap(ticketDetails -> Flux.just(new TicketDetailsDto(ticketDetails)));
 
     }
 

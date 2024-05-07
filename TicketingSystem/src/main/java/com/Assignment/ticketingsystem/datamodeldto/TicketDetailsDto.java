@@ -1,10 +1,9 @@
-package com.Assignment.TicketingSystem.DataModelDtos;
+package com.Assignment.ticketingsystem.datamodeldto;
 
 
-import com.Assignment.TicketingSystem.DataModels.TicketDetails;
-import com.Assignment.TicketingSystem.Enums.TicketPriority;
-import com.Assignment.TicketingSystem.Enums.TicketStatus;
-import com.Assignment.TicketingSystem.ExceptionHandlers.CustomException;
+import com.Assignment.ticketingsystem.datamodel.TicketDetails;
+import com.Assignment.ticketingsystem.enumpackage.TicketPriority;
+import com.Assignment.ticketingsystem.enumpackage.TicketStatus;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
